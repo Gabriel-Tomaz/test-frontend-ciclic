@@ -121,8 +121,25 @@
 }
 
 @media all and (min-width: 10px) and (max-width: 767px) {
+  .app-title {
+    font-size: 2.8em;
+  }
+  .app-text {
+    width: 85%;
+  }
   .app-form {
     width: 95%;
+  }
+  .app-form input {
+    width: 85%;
+    height: 60px;
+  }
+  .app-form select {
+    width: 92%;
+    height: 60px;
+  }
+  .app-form button {
+    width: 92%;
   }
 }
 /*# sourceMappingURL=style.css.map */
