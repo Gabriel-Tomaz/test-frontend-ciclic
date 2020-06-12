@@ -14,3 +14,5 @@ Eu encontrei esse teste nesse repositório https://github.com/felipefialho/front
 <img src="https://github.com/Gabriel-Tomaz/test-frontend-ciclic/blob/master/screenshots/Result.png" height="600.63" width="300">
 
 #### A aplicação também roda em Desktop, mas achei o mobile mais legal.
+
+Faltam ajustes.
