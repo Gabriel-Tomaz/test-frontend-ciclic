@@ -29,7 +29,7 @@ export default function AlertDialog(props) {
         <div className="dialog-content">
           <h1 className="dialog-content-title">Ciclic</h1>
           <p className="dialog-content-text">
-            Olá {props.name + " "}, juntnado
+            Olá {props.name + " "}, juntando
             {" " + currencyFormater(props.potion) + " "}
             todo mês, você terá 
             {" "+ currencyFormater(props.result) + " "}
