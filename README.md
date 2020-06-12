@@ -5,7 +5,7 @@ Eu encontrei esse teste nesse repositório https://github.com/felipefialho/front
 #### O repositório do desafio é esse https://github.com/ciclic/test-frontend
 
 ### Sobre a aplicação
-É uma ferramenta que simula investimentos a juros compostos, pra fazer o calculo ela utiliza essa API pública http://api.mathjs.org/
+É uma ferramenta que simula investimentos a juros compostos, Para construir a aplicação eu utilizei <a href="https://reactjs.org/"><b>React</b><a/> e para realizar o cálculo da simulação eu utilizei a API <a href="http://api.mathjs.org/"><b>Math.js</b><a/> que fois indicada na proposta do desafio
 
 ##### Tela de home.
 <img src="https://github.com/Gabriel-Tomaz/test-frontend-ciclic/blob/master/screenshots/Home.png" height="600.63" width="300">
