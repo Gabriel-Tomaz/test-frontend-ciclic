@@ -12,6 +12,20 @@
   display: flex;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main, .main-home {
+  width: 100%;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .main-home {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -100,7 +114,7 @@
   font-size: 1.1em;
 }
 
-.app-button {
+.app-button, .dialog-content .dialog-content-button {
   width: 71%;
   height: 60px;
   font-size: 1.5em;
@@ -115,7 +129,7 @@
   transition: all 0.2s;
 }
 
-.app-button:active {
+.app-button:active, .dialog-content .dialog-content-button:active {
   -webkit-transform: scale(0.95);
           transform: scale(0.95);
 }
@@ -138,8 +152,55 @@
     width: 92%;
     height: 60px;
   }
-  .app-button {
+  .app-button, .dialog-content .dialog-content-button {
     width: 92%;
+  }
+}
+
+.dialog-content {
+  width: 300px;
+  height: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.dialog-content .dialog-content-title {
+  text-align: center;
+  font-weight: bold;
+  color: #253237;
+}
+
+.dialog-content .dialog-content-text {
+  width: 90%;
+  font-size: 1.3em;
+  font-weight: 500;
+  color: #5C6B73;
+}
+
+.dialog-content .dialog-content-button {
+  width: 90%;
+}
+
+@media all and (min-width: 10px) and (max-width: 767px) {
+  .dialog-content {
+    width: 80vw;
+    height: 350px;
+  }
+  .dialog-content .dialog-content-title {
+    font-size: 2.8em;
+  }
+  .dialog-content .dialog-content-text {
+    font-size: 1.3em;
   }
 }
 /*# sourceMappingURL=style.css.map */

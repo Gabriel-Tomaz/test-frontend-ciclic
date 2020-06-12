@@ -35,7 +35,7 @@
         border-radius: $border-radius;
         outline: none;
         color: $primary-color;
-        font-weight: 600;
+        font-weight: 500;
         font-size: 1.1em;
 
         &::placeholder{
@@ -55,21 +55,22 @@
         background-color: white;
         font-size: 1.1em;
     }
-    button{
-        width: 50%;
-        height: 60px;
-        font-size: 1.5em;
-        background-color: $primary-color;
-        color: $button-text-color;
-        border-radius: $border-radius;
-        border: none;
-        outline: none;
-        transform-origin: center;
-        transition: all 0.2s;
+}
 
-        &:active{
-            transform: scale(0.95);
-        }
+.app-button{
+    width: 71%;
+    height: 60px;
+    font-size: 1.5em;
+    background-color: $primary-color;
+    color: $button-text-color;
+    border-radius: $border-radius;
+    border: none;
+    outline: none;
+    transform-origin: center;
+    transition: all 0.2s;
+
+    &:active{
+        transform: scale(0.95);
     }
 }
 
@@ -92,9 +93,8 @@
             width: 92%;
             height: 60px;
         }
-
-        button{
-            width: 92%;
-        }
+    }
+    .app-button{
+        width: 92%;
     }
 }
