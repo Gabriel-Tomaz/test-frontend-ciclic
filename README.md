@@ -6,3 +6,11 @@
 
 ## Sobre a aplicação
 É uma ferramenta que simula investimentos a juros compostos, pra fazer o calculo ela utiliza essa API pública http://api.mathjs.org/
+
+##### Tela de home.
+![Alt text](https://github.com/Gabriel-Tomaz/test-frontend-ciclic/blob/master/screenshots/Home.png "Home Screen")
+
+##### Tela de resultado da consulta.
+![Alt text](https://github.com/Gabriel-Tomaz/test-frontend-ciclic/blob/master/screenshots/Result.png)
+
+#### A aplicação também roda em Desktop, mas achei o mobile mais legal.
