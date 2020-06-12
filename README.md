@@ -8,9 +8,9 @@
 É uma ferramenta que simula investimentos a juros compostos, pra fazer o calculo ela utiliza essa API pública http://api.mathjs.org/
 
 ##### Tela de home.
-![Alt text](https://github.com/Gabriel-Tomaz/test-frontend-ciclic/blob/master/screenshots/Home.png "Home Screen")
+<img src="https://github.com/Gabriel-Tomaz/test-frontend-ciclic/blob/master/screenshots/Home.png" height="600.63" width="300">
 
 ##### Tela de resultado da consulta.
-![Alt text](https://github.com/Gabriel-Tomaz/test-frontend-ciclic/blob/master/screenshots/Result.png)
+<img src="https://github.com/Gabriel-Tomaz/test-frontend-ciclic/blob/master/screenshots/Result.png" height="600.63" width="300">
 
 #### A aplicação também roda em Desktop, mas achei o mobile mais legal.
