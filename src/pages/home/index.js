@@ -5,7 +5,7 @@ import * as yup from 'yup';
 
 
 import api from '../../services/api';
-import {Main, Form, FormHeader, FieldArea, Button} from './style';
+import {Main, Form, FormHeader, FieldArea, Button,Error} from './style';
 
 function Home(){
 
@@ -57,8 +57,8 @@ function Home(){
                                 onBlur={handleBlur}
                                 value={values.name}
                             />
-                            {errors && touched ? (
-                                <p>{errors.name}</p>
+                            {errors.name && touched.name ? (
+                                <Error>{errors.name}</Error>
                             ):null}
                         </FieldArea>
         
@@ -72,8 +72,8 @@ function Home(){
                                 onBlur={handleBlur}
                                 value={values.payment}
                             />
-                              {errors && touched ? (
-                                <p>{errors.payment}</p>
+                              {errors.payment && touched.payment ? (
+                                <Error>{errors.payment}</Error>
                             ):null}
                         </FieldArea>
         
@@ -92,8 +92,8 @@ function Home(){
                                 <option value="48">4 Anos</option>
                             </select>
 
-                            {errors && touched ? (
-                                <p>{errors.time}</p>
+                            {errors.time && touched.time ? (
+                                <Error>{errors.time}</Error>
                             ):null}
                         </FieldArea>
                         

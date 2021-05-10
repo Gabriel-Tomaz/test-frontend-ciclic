@@ -88,4 +88,11 @@ export const Button = styled.button`
     &:active{
         opacity: 0.9;
     }
+`;
+
+export const Error = styled.p`
+    font-size: 14px;
+    color: #EF5350;
+    margin-top: 5px;
+
 `
