@@ -1,73 +1,109 @@
-import React,{useState} from 'react';
+import React from 'react';
+import {useState} from 'react';
+import {Formik} from 'formik';
+import * as yup from 'yup';
+
 
 import api from '../../services/api';
-import ResultDialog from '../../components/resultDialog';
 import {Main, Form, FormHeader, FieldArea, Button} from './style';
 
-export default function Home(){
-    const [name,setName] = useState('');
-    const [potion,setPotion] = useState();  
-    const [yars,setYars] = useState();
-    const [result,setResult] = useState();
+function Home(){
 
-    const [openDialog,setOpenDialog] = useState(false);
-    const [cont, setCont] = useState(0);
-
-   async function simulate(e){
-        e.preventDefault();
+   async function calculate(values){
 
         await api.post('/',{
-            "expr": `${potion} * (((1 + 0.00517) ^ ${yars} - 1) / 0.00517)`,
+            "expr": `${values.payment} * (((1 + 0.00517) ^ ${values.time} - 1) / 0.00517)`,
             "precision": 5
             }).then(response => {
-                setResult(response.data.result);
+                console.log(response.data)
             }).catch(err => {
                 console.log("erro ao cadastrar" + err);  
-            })
-            setOpenDialog(true);
-            setCont(cont + 1);
-        }
+            });
+    }
+
+    const validateSchema = yup.object().shape({
+        name: yup.string().min(3,'Por favor, informe um nome válido.').required('Por favor, informe seu nome.'),
+        payment: yup.number().required('Por favor, informe o valor da mensalidade.'),
+        time: yup.number().required('Por favor, informe o tempo que deseja investir.'),
+    })
 
     return(
         <Main>
-            <Form onSubmit={simulate}>
-                <FormHeader>
-                    <h2>Ciclic</h2>
-                    <p>Simule seus investimentos a juros compostos</p>
-                </FormHeader>
+            <Formik
+                initialValues={
+                  {
+                    name: '',
+                    payment: '',
+                    time: '',
+                  }
+                }
+                validationSchema={validateSchema}
+                onSubmit={values => calculate(values)}
+            >
+                {({handleChange,handleBlur,handleSubmit,errors,touched, values}) => (
+                    <Form onSubmit={handleSubmit}> 
+                        <FormHeader>
+                            <h2>Ciclic</h2>
+                            <p>Simule seus investimentos a juros compostos</p>
+                        </FormHeader>
+        
+                        <FieldArea>
+                            <label>Qual seu nome ?</label>
+                            <input 
+                                type="text" 
+                                placeholder="Nome" 
+                                name="name"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.name}
+                            />
+                            {errors && touched ? (
+                                <p>{errors.name}</p>
+                            ):null}
+                        </FieldArea>
+        
+                        <FieldArea>
+                            <label>Quanto quer poupar ?</label>
+                            <input 
+                                type="text" 
+                                name="payment"
+                                placeholder="Mensalidade"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.payment}
+                            />
+                              {errors && touched ? (
+                                <p>{errors.payment}</p>
+                            ):null}
+                        </FieldArea>
+        
+                        <FieldArea>
+                            <label>Por quanto tempo ?</label>
+                            <select
+                                name="time"
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+                                value={values.time}
+                            >
+                                <option value="">Selecione</option>
+                                <option value="12">1 Ano</option>
+                                <option value="24">2 Anos</option>
+                                <option value="36">3 Anos</option>
+                                <option value="48">4 Anos</option>
+                            </select>
 
-                <FieldArea>
-                    <label>Qual seu nome ?</label>
-                    <input type="text" placeholder="Nome" value={name} onChange={e => setName(e.target.value)}/>
-                </FieldArea>
-
-                <FieldArea>
-                    <label>Quanto quer poupar ?</label>
-                    <input type="text" placeholder="Mensalidade" value={potion} onChange={e => setPotion(e.target.value)} />
-                </FieldArea>
-
-                <FieldArea>
-                    <label>Por quanto tempo ?</label>
-                    <select value={yars} onChange={e => setYars(e.target.value)}>
-                        <option value="">Selecione</option>
-                        <option value="12">1 Ano</option>
-                        <option value="24">2 Anos</option>
-                        <option value="36">3 Anos</option>
-                        <option value="48">4 Anos</option>
-                    </select>
-                </FieldArea>
-                
-                <Button type="submit">Simular</Button>
-            </Form>
-
-            <ResultDialog 
-                openDialog={openDialog} 
-                cont={cont}
-                name={name}
-                potion={potion}
-                yars={yars}
-                result={result}
-            />
+                            {errors && touched ? (
+                                <p>{errors.time}</p>
+                            ):null}
+                        </FieldArea>
+                        
+                        <Button type="submit">Simular</Button>
+                    </Form>
+                )}
+            </Formik>
+            
         </Main>
     );
 }
+
+export default Home;
