@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
 
-import './style.css';
 import api from '../../services/api';
 import ResultDialog from '../../components/resultDialog';
+import {Main, Form, FormHeader, FieldArea, Button} from './style';
 
 export default function Home(){
     const [name,setName] = useState('');
@@ -29,22 +29,36 @@ export default function Home(){
         }
 
     return(
-        <div className="main-home">
-            <h1 className="app-title">Ciclic</h1>
-            <h2 className="app-text">Simule seus investimentos a juros compostos</h2>
-            
-            <form className="app-form" onSubmit={simulate}>
-                <input type="text" placeholder="Nome" value={name} onChange={e => setName(e.target.value)}/>
-                <input type="text" placeholder="Mensalidade" value={potion} onChange={e => setPotion(e.target.value)} />
-                <select value={yars} onChange={e => setYars(e.target.value)}>
-                    <option value="">Selecione</option>
-                    <option value="12">1 Ano</option>
-                    <option value="24">2 Anos</option>
-                    <option value="36">3 Anos</option>
-                    <option value="48">4 Anos</option>
-                </select>
-                <button className="app-button" type="submit">Simular</button>
-            </form>
+        <Main>
+            <Form onSubmit={simulate}>
+                <FormHeader>
+                    <h2>Ciclic</h2>
+                    <p>Simule seus investimentos a juros compostos</p>
+                </FormHeader>
+
+                <FieldArea>
+                    <label>Qual seu nome ?</label>
+                    <input type="text" placeholder="Nome" value={name} onChange={e => setName(e.target.value)}/>
+                </FieldArea>
+
+                <FieldArea>
+                    <label>Quanto quer poupar ?</label>
+                    <input type="text" placeholder="Mensalidade" value={potion} onChange={e => setPotion(e.target.value)} />
+                </FieldArea>
+
+                <FieldArea>
+                    <label>Por quanto tempo ?</label>
+                    <select value={yars} onChange={e => setYars(e.target.value)}>
+                        <option value="">Selecione</option>
+                        <option value="12">1 Ano</option>
+                        <option value="24">2 Anos</option>
+                        <option value="36">3 Anos</option>
+                        <option value="48">4 Anos</option>
+                    </select>
+                </FieldArea>
+                
+                <Button type="submit">Simular</Button>
+            </Form>
 
             <ResultDialog 
                 openDialog={openDialog} 
@@ -54,6 +68,6 @@ export default function Home(){
                 yars={yars}
                 result={result}
             />
-        </div>
+        </Main>
     );
 }

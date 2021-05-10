@@ -2,7 +2,6 @@ import React from 'react';
 import {useState,useEffect} from 'react'
 import Dialog from '@material-ui/core/Dialog';
 
-import './style.css'
 
 export default function AlertDialog(props) {
     const [open, setOpen] = useState(false);
