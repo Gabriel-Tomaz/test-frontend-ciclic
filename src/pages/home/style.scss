@@ -1,0 +1,100 @@
+@import '../../main.scss';
+
+.main-home{
+    @extend .main;
+
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .app-title{
+        font-weight: bold;
+        color: $primary-color;
+    }
+    .app-text{
+        font-weight: 600;
+        color: $secondary-color;
+        margin: 20px;
+    }
+}
+
+.app-form{
+    width: 30%;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    input{
+        width: 65%;
+        height: 45px;
+        padding: 0 12px;
+        border: $border;
+        border-radius: $border-radius;
+        outline: none;
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 1.1em;
+
+        &::placeholder{
+            color: $secondary-color;
+            font-weight: 600;
+        }
+    }
+    select{
+        width: 71%;
+        height: 50px;
+        padding: 0 12px;
+        outline: none;
+        border: $border;
+        border-radius: $border-radius;
+        font-weight: 600;
+        color: $secondary-color;
+        background-color: white;
+        font-size: 1.1em;
+    }
+}
+
+.app-button{
+    width: 71%;
+    height: 60px;
+    font-size: 1.5em;
+    background-color: $primary-color;
+    color: $button-text-color;
+    border-radius: $border-radius;
+    border: none;
+    outline: none;
+    transform-origin: center;
+    transition: all 0.2s;
+
+    &:active{
+        transform: scale(0.95);
+    }
+}
+
+@media all and (min-width: 10px) and (max-width: 767px){
+    .app-title{
+        font-size: 2.8em;
+    }
+    .app-text{
+        width: 85%;
+    }
+    .app-form{
+        width: 95%;
+
+        input{
+            width: 85%;
+            height: 60px;
+        }
+
+        select{
+            width: 92%;
+            height: 60px;
+        }
+    }
+    .app-button{
+        width: 92%;
+    }
+}
