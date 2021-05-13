@@ -18,6 +18,11 @@ export const Form = styled.form`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+
+    @media(min-width: 1px) and (max-width: 768px) {
+        width: 90%;
+    }
+
 `;
 
 export const FormHeader = styled.div`

@@ -35,6 +35,10 @@ export const ModalContent = styled.div`
     p{
         width: 80%;
     }
+
+    @media(min-width: 1px) and (max-width: 768px) {
+        width: 90%;
+    }
 `;
 
 export const Button = styled.button`
