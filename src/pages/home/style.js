@@ -31,10 +31,12 @@ export const FormHeader = styled.div`
 
     h2{
         margin-bottom: 10px;
+        color: #14213d;
     }
 
     p{
         font-size: 1.1em;
+        color: #000;
     }
 
 `;
@@ -56,8 +58,15 @@ export const FieldArea = styled.div`
         height: 40px;
         padding: 0 12px;
         font-size: 1em;
-        border: solid 1px #000;
+        border: solid 2px #e5e5e5;
         outline: none;
+        border-radius: 6px;
+        transition: all 0.4s;
+
+        &:focus{
+            border: solid 2px #14213d;
+        }
+
     }
 
     select{
@@ -65,9 +74,15 @@ export const FieldArea = styled.div`
         font-size: 1em;
         padding: 0 12px;
         font-size: 1em;
-        border: solid 1px #000; 
+        border: solid 2px #e5e5e5; 
         background-color: #FFF;
         outline: none;
+        border-radius: 6px;
+        transition: all 0.4s;
+
+        &:focus{
+            border: solid 2px #14213d;
+        }
     }
 `;
 
@@ -80,10 +95,11 @@ export const Button = styled.button`
     font-weight: 600;
     outline: none;
     border: none;
-    background-color: #000;
+    background-color: #14213d;
     color: #FFF;
     cursor: pointer;
-    transition: all 0.2s;
+    transition: all 0.4s;
+    border-radius: 6px;
 
     &:active{
         opacity: 0.9;
@@ -94,5 +110,5 @@ export const Error = styled.p`
     font-size: 14px;
     color: #EF5350;
     margin-top: 5px;
-
-`
+    transition: all 0.4s;
+`;

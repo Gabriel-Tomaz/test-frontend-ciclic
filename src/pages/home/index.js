@@ -65,6 +65,7 @@ function Home(){
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.name}
+                                autoComplete="off"
                             />
                             {errors.name && touched.name ? (
                                 <Error>{errors.name}</Error>
@@ -80,6 +81,7 @@ function Home(){
                                 onChange={handleChange}
                                 onBlur={handleBlur}
                                 value={values.payment}
+                                autoComplete="off"
                             />
                               {errors.payment && touched.payment ? (
                                 <Error>{errors.payment}</Error>

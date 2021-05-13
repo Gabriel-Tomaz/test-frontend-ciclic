@@ -24,10 +24,12 @@ export const ModalContent = styled.div`
     justify-content: center;
     align-items: center;
     position: relative;
+    border-radius: 6px;
 
     h2{
         width: 80%;
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        color: #14213d;
     }
 
     p{
@@ -44,11 +46,12 @@ export const Button = styled.button`
     font-weight: 600;
     outline: none;
     border: none;
-    background-color: #000;
+    background-color: #14213d;
     color: #FFF;
     cursor: pointer;
     transition: all 0.2s;
     margin-top: 20px;
+    border-radius: 6px;
 
     &:active{
         opacity: 0.9;
