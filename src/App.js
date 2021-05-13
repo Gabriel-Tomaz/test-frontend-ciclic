@@ -1,10 +1,16 @@
 import React from 'react';
 
 import Home from './pages/home';
+import {ResultProvider} from './Context/ResultContext';
+import Default from './styles/default';
+
 
 function App() {
   return (
-    <Home />
+    <ResultProvider>
+      <Default />
+      <Home />
+    </ResultProvider>
   );
 }
 

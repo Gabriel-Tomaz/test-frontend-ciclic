@@ -1,21 +1,30 @@
 import React from 'react';
-import {useState} from 'react';
+import {useContext,useState} from 'react';
 import {Formik} from 'formik';
 import * as yup from 'yup';
 
 
 import api from '../../services/api';
 import {Main, Form, FormHeader, FieldArea, Button,Error} from './style';
+import {ResultContex} from '../../Context/ResultContext';
+import Modal from '../../components/Modal'
 
 function Home(){
+    const {setResult} = useContext(ResultContex);
+    const [openModal,setOpenModal] = useState(false);
 
    async function calculate(values){
-
         await api.post('/',{
             "expr": `${values.payment} * (((1 + 0.00517) ^ ${values.time} - 1) / 0.00517)`,
             "precision": 5
             }).then(response => {
-                console.log(response.data)
+                setResult({
+                    name: values.name,
+                    payment: values.payment,
+                    time: values.time,
+                    finalResult: response.data.result
+                });
+                setOpenModal(true);
             }).catch(err => {
                 console.log("erro ao cadastrar" + err);  
             });
@@ -101,7 +110,7 @@ function Home(){
                     </Form>
                 )}
             </Formik>
-            
+            <Modal openModal={openModal} closeModal={() => setOpenModal(!openModal)}/>
         </Main>
     );
 }
